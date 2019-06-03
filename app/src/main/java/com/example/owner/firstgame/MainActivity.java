@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     if(die1==die2&&die1==die3) {
         int scoreKeeper = die1 * 100;
-        msg = "You scored a triple " + die1 +". The score is " + scoreKeeper;
+        msg = "You scored a triple for " + scoreKeeper + " points.";
         score += scoreKeeper;
     }
     else if(die1 == die2 || die1 == die3 || die2==die3){
@@ -86,12 +86,11 @@ public class MainActivity extends AppCompatActivity {
                 score += 50;
     }
     else{
-        msg = "You did not score. Please try again!"
+        msg = "You did not score. Please try again!";
     }
 
     rollResult.setText(msg);
-
-
+    scoreText.setText("Score: "+score);
     }
 
 
