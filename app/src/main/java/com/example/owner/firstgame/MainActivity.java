@@ -16,9 +16,9 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView rollResult, scoreText;
+    TextView rollResult, scoreText, totalRollsText, doubleText, triplesText;
     Button rollButton;
-    int score, die1, die2, die3;
+    int score, die1, die2, die3, doubles, triples, total_Rolls;
 
     ArrayList<ImageView> diceImageViews;
 
@@ -30,11 +30,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         score = 0;
+        doubles = 0;
+        triples = 0;
+        total_Rolls = 0;
         Toast.makeText(this,"Welcome to DiceOut",Toast.LENGTH_SHORT).show();
 
         rollResult = (TextView)findViewById(R.id.rollResult);
         rollButton = (Button)findViewById(R.id.rollButton);
         scoreText= (TextView)findViewById(R.id.scoreText);
+        totalRollsText = (TextView)findViewById(R.id.rollsText);
+        doubleText = (TextView)findViewById(R.id.doublesText);
+        triplesText = (TextView)findViewById(R.id.triplesText);
 
         rand = new Random();
 
@@ -76,19 +82,27 @@ public class MainActivity extends AppCompatActivity {
 
     String msg;
 
+
     if(die1==die2&&die1==die3) {
         int scoreKeeper = die1 * 100;
         msg = "You scored a triple for " + scoreKeeper + " points.";
         score += scoreKeeper;
+        triples += 1;
+        total_Rolls += 1;
     }
     else if(die1 == die2 || die1 == die3 || die2==die3){
         msg = "You scored double for 50 points.";
                 score += 50;
+                doubles += 1;
+                total_Rolls += 1;
     }
     else{
         msg = "You did not score. Please try again!";
+        total_Rolls += 1;
     }
-
+    doubleText.setText("Doubles: " +doubles);
+    triplesText.setText("Triples: "+triples);
+    totalRollsText.setText("Total Rolls: "+total_Rolls);
     rollResult.setText(msg);
     scoreText.setText("Score: "+score);
     }
