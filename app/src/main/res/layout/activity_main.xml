@@ -14,20 +14,13 @@
     android:paddingBottom="16dp">
 
     <TextView
+        android:id="@+id/rollResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Let's play DiceOut!"
-        android:id="@+id/rollResult"/>
+        android:textSize="20dp" />
 
-    <Button
-        android:id="@+id/rollButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/die2Image"
-        android:layout_marginTop="19dp"
-        android:text="Roll!"
-        android:onClick="rollDice"/>
+
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -55,15 +48,47 @@
         android:layout_alignParentRight="true"
         android:src="@drawable/face1"/>
 
-    <TextView
+    <Button
+        android:id="@+id/rollButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:text="Roll!"
+        android:layout_marginBottom="40dp"
+        android:onClick="rollDice"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:text="Score: 0"
-        android:layout_marginBottom="50dp"
-        android:textSize="30dp"
+        android:textSize="40dp"
         android:id="@+id/scoreText"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Rolls: 0"
+        android:layout_below="@id/scoreText"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:id="@+id/rollsText"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doubles: 0"
+        android:layout_below="@+id/rollsText"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:id="@+id/doublesText"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Triples: 0"
+        android:layout_below="@+id/doublesText"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"/>
 </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
